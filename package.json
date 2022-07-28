@@ -1,0 +1,19 @@
+{
+  "name": "proyectonode-2da-preentrega-brian-kavinoff",
+  "version": "1.0.0",
+  "description": "ecommerce project with node",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Brian Kavinoff",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "firebase-admin": "^11.0.0",
+    "mongoose": "^6.5.0",
+    "nodemon": "^2.0.19"
+  }
+}
