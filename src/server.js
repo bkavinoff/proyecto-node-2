@@ -12,19 +12,8 @@ const puerto = process.env.PORT // || 8080;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-//Path
-//import path from 'path';
-//import { fileURLToPath } from 'url';
-//const __filename = fileURLToPath(import.meta.url);
-//const __dirname = path.dirname(__filename);
-
-
-
 import routes from './routes/index.js';
 
-
-
-//app.use('/', express.static(path.join(__dirname + '../public')));
 app.use('/', express.static('public'))
 
 // API
