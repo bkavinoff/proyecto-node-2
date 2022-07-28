@@ -59,7 +59,6 @@ const saveProductsCart = async (req, res) => {
         const id_prod = req.params.id_prod;
         const id_cart = req.params.id;
 
-        console.log('entro a saveProductsCart')
         //busco el carrito segun id
         const cartFound = await carts.getById(id_cart);
         if (!cartFound) {
@@ -79,7 +78,6 @@ const saveProductsCart = async (req, res) => {
 
         //agrego el producto al carrito
         cartFound.productos.push(product)
-        //console.log(cartFound)
 
         //actualizo el carrito
         await carts.updateById(id_cart, cartFound)
@@ -95,24 +93,21 @@ const deleteProductCart = async (req, res) => {
     const id_prod = req.params.id_prod;
     const id_cart = req.params.id;
 
-    console.log('entro a deleteProductsCart')
     try {
         //busco el carrito segun id
         let cartFound = await carts.getById(id_cart);
         if (!cartFound) {
             throw `No existe carrito con id: ${id_cart}`;
         }
-        console.log('cartFound: ', cartFound)
+        
         //busco el producto segun id
         const productFound = await products.getById(id_prod);
         if (!productFound) {
             throw `No existe producto con id: ${id_prod}`;
         }
-        console.log('productFound: ', productFound)
 
         //me fijo si el carrito tiene el producto
         let productIndex = cartFound.productos.findIndex(obj => (obj.id.toString()) === id_prod)
-        console.log('productIndex: ', productIndex)
         
         if ( productIndex == -1 ){
             res.status(404).json({error: `No se encontró ningun producto con id: ${id_prod} en el carrito`})
@@ -120,9 +115,7 @@ const deleteProductCart = async (req, res) => {
         }
 
         //lo elimino
-        console.log('cartfound previo',cartFound)
         cartFound.productos.splice(productIndex,1)
-        console.log('cartfound nuevo',cartFound)
 
         //actualizo el carrito
         await carts.updateById(id_cart, cartFound)

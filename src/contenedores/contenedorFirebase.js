@@ -14,8 +14,6 @@ class ContenedorFirebase {
 
     async getAll() {
       try {
-        console.log('entro al getAll del contenedor')
-        
 
         //busco los documentos de la colección
         const collection = await this.coleccion;

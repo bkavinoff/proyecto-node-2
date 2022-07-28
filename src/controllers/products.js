@@ -2,7 +2,6 @@ import { ProductDao as products } from '../daos/index.js';
 
 const getProducts = async (req, res) => {
     try {
-        console.log('entro al getproducts del controller')
         //obtengo los productos
         const productList = await products.getAll();
 
