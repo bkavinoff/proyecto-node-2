@@ -19,8 +19,6 @@ class ContenedorFirebase {
         const collection = await this.coleccion;
         const snapshotDocs = await collection.get();
 
-        console.log('snapshotDocs: ', snapshotDocs)
-
         let productos = [];
 
         //cargo el array de productos
